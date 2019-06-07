@@ -1,0 +1,85 @@
+<div class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a routerLink="docs/home" class="fa fa-home" (click)="onMenuClick('home')"> Docs App</a>
+
+        <!-- <a href="/login" class="icon" ><i class="fa fa-sign-in"></i> LOGIN</a> -->
+        <!-- <div class="wy-form">		
+            <span class="k">Logged-in User: </span>
+            <span> NAME</span>	<br>		
+            <span class="k">Role: </span><span> ROLE NAME</span><br>
+            <a href="/admin/home" style="color:white; padding: 5px;"><i class="fa fa-tachometer"></i> User Dashboard  </a>
+            <a href="/logout" style="color:white;padding: 5px;"><i class="fa fa-sign-out"></i> LogOut</a>
+    </div> -->
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation"
+        id="doc-menu">
+        <ul>
+          <li class="" *ngFor="let menu of menuDtls">
+            <a routerLink="docs/{{menu.fileName}}" (click)="onMenuClick(menu.fileName)">
+              {{menu.title}}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="/">Docs App</a>
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation" *ngIf="false">
+            <a style="float: right;" href="">
+              <i class="fa fa-edit fa-2x"></i> EDIT
+            </a>
+          </div>
+
+          <div role="main">
+            <div class="section" [innerHTML]="docContent">
+              <!-- HTML CONTENT HERE! -->
+              
+            </div>
+          </div>
+          <footer>
+            <hr />
+            <div role="contentinfo">
+              <!-- Copyright etc -->
+              <p> &copy; 2017 Docs App, Developed by Navin Kumar.</p>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" *ngIf="false">
+    <span class="rst-current-version" data-toggle="rst-current-version" style="text-align:left;cursor: text;">
+
+      <span>
+        <b>Author :</b> <span></span><br>
+        <b>Created on :</b> <span></span>
+      </span><br>
+      <span>
+        <b>Edited by :</b> <span></span><br>
+        <b>on</b> <span></span>
+      </span>
+
+    </span>
+  </div>
+</div>
