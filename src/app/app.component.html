@@ -5,8 +5,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a routerLink="docs/home" class="fa fa-home" (click)="onMenuClick('home')"> Docs App</a>
+        <br>
+        <button mat-raised-button (click)="gotoLogin()" ><i class="fa fa-sign-in"></i> LOGIN</button>
 
-        <!-- <a href="/login" class="icon" ><i class="fa fa-sign-in"></i> LOGIN</a> -->
         <!-- <div class="wy-form">		
             <span class="k">Logged-in User: </span>
             <span> NAME</span>	<br>		
@@ -48,9 +49,10 @@
           </div>
 
           <div role="main">
+            <router-outlet></router-outlet>
             <div class="section" [innerHTML]="docContent">
               <!-- HTML CONTENT HERE! -->
-              
+
             </div>
           </div>
           <footer>
