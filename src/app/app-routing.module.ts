@@ -5,8 +5,8 @@ import { DocsComponent } from './docs/docs.component';
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'docs', pathMatch: 'full'},
-    {path: 'docs', component: AppComponent},
+    {path: '', redirectTo: 'docs/home', pathMatch: 'full'},
+    // {path: 'docs', component: AppComponent},
     {path: 'docs/:docName', component: DocsComponent},
     {path: 'login', component: LoginComponent}
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service';
+import { AppService } from '../service/app.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-docs',
@@ -8,12 +9,16 @@ import { AppService } from '../app.service';
 })
 export class DocsComponent implements OnInit {
 
-  fileName='home';
-  docContent;
-  constructor(private appService: AppService) { }
+  fileName;
+  docContent = '';
+  constructor(private appService: AppService,
+              private router: Router,
+              private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.appService.getDocContent(this.fileName).subscribe(docData => this.docContent = docData);
+    // this.appService.getDocContent(this.fileName).subscribe(docData => this.docContent = docData);
+    this.fileName = this.actRoute.snapshot.paramMap.get('docName');
+    this.docContent = this.appService.getDocContent(this.fileName);
   }
 
 }

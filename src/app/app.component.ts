@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './app.service';
-import { MenuDetails } from './menu-details';
+import { AppService } from './service/app.service';
+import { MenuDetails } from './model/menu-details';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,30 +11,23 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit {
 
     menuDtls: MenuDetails[] = [];
-    docContent;
+    adminView: boolean;
     constructor(private appService: AppService, private router: Router) {
     }
 
     ngOnInit() {
+        this.adminView = false;
         this.appService.getMenu().subscribe(menuData => {
             this.menuDtls = menuData;
             // console.log(menuData);
         });
-        if (this.docContent === undefined) {
-            this.appService.getDocContent('home').subscribe(docData => {
-                this.docContent = docData;
-            });
-        }
-
     }
 
-    onMenuClick(fileName: string) {
-        this.appService.getDocContent(fileName).subscribe(docData => {
-            this.docContent = docData;
-        });
+    isAdminView() {
+        return this.adminView;
     }
 
-    gotoLogin() {
-        this.router.navigateByUrl('/login');
+    setAdminView(flag) {
+        this.adminView = flag;
     }
 }

@@ -1,87 +1,33 @@
-<div class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a routerLink="docs/home" class="fa fa-home" (click)="onMenuClick('home')"> Docs App</a>
-        <br>
-        <button mat-raised-button (click)="gotoLogin()" ><i class="fa fa-sign-in"></i> LOGIN</button>
-
-        <!-- <div class="wy-form">		
-            <span class="k">Logged-in User: </span>
-            <span> NAME</span>	<br>		
-            <span class="k">Role: </span><span> ROLE NAME</span><br>
-            <a href="/admin/home" style="color:white; padding: 5px;"><i class="fa fa-tachometer"></i> User Dashboard  </a>
-            <a href="/logout" style="color:white;padding: 5px;"><i class="fa fa-sign-out"></i> LogOut</a>
-    </div> -->
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation"
-        id="doc-menu">
-        <ul>
-          <li class="" *ngFor="let menu of menuDtls">
-            <a routerLink="docs/{{menu.fileName}}" (click)="onMenuClick(menu.fileName)">
-              {{menu.title}}
+<div class="nav-container">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row class="nav-toolbar">
+            <a routerLink="/docs/home">
+                <button mat-stroked-button>
+                    <h3><mat-icon>book</mat-icon> Documentation</h3>
+                </button>
             </a>
-          </li>
-        </ul>
-      </div>
+            <a mat-raised-button routerLink="login" class="mat-accent login-button">Login</a>
+            <div class="profile">
+                <button mat-icon-button [mat-menu-trigger-for]="profileMenu"><mat-icon>account_circle</mat-icon></button>
+                <mat-menu #profileMenu="matMenu">
 
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="/">Docs App</a>
-      </nav>
-
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation" *ngIf="false">
-            <a style="float: right;" href="">
-              <i class="fa fa-edit fa-2x"></i> EDIT
-            </a>
-          </div>
-
-          <div role="main">
+                </mat-menu>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container class="nav-sidebar-container">
+        <mat-sidenav class="nav-sidebar" mode="side" opened>
+            <mat-nav-list >
+                <a mat-list-item *ngFor="let navItem of menuDtls"
+                   [routerLink]="['/docs', navItem.fileName]" routerLinkActive="nav-link-active">
+                    {{navItem.title}}
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content class="mat-card-content">
             <router-outlet></router-outlet>
-            <div class="section" [innerHTML]="docContent">
-              <!-- HTML CONTENT HERE! -->
-
-            </div>
-          </div>
-          <footer>
-            <hr />
-            <div role="contentinfo">
-              <!-- Copyright etc -->
-              <p> &copy; 2017 Docs App, Developed by Navin Kumar.</p>
-            </div>
-          </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" *ngIf="false">
-    <span class="rst-current-version" data-toggle="rst-current-version" style="text-align:left;cursor: text;">
-
-      <span>
-        <b>Author :</b> <span></span><br>
-        <b>Created on :</b> <span></span>
-      </span><br>
-      <span>
-        <b>Edited by :</b> <span></span><br>
-        <b>on</b> <span></span>
-      </span>
-
-    </span>
-  </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <notifier-container></notifier-container>
 </div>
+

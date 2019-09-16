@@ -1,0 +1,49 @@
+
+.nav-container{
+    height: 90vh;
+}
+
+.nav-toolbar{
+
+}
+
+.nav-toolbar a{
+    color: white;
+}
+
+.nav-sidebar-container{
+    height: 98%;
+}
+
+.nav-sidebar{
+    width: 20%;
+    background-color: #3F51B5;
+}
+
+.nav-sidebar a{
+    color: white;
+}
+
+.login-button{
+    position: absolute;
+    right: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nav-link-active{
+    background-color: #EC407A;
+}
+
+.nav-container mat-toolbar, .nav-container mat-sidenav{
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+
+.profile{
+    position: absolute;
+    right: 30px;
+}
+
+.profile mat-icon{
+    font-size: 40px;
+}
