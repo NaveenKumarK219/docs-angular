@@ -1,0 +1,14 @@
+[
+	{
+		"id": 1,
+		"title": "Manage Users",
+		"view": "manage-users",
+		"role": "admin"	
+	},
+	{
+		"id": 2,
+		"title": "Manage Docs",
+		"view": "manage-docs",
+		"role": "admin"
+	}
+]

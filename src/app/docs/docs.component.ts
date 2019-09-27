@@ -9,16 +9,24 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class DocsComponent implements OnInit {
 
-  fileName;
+  fileName: string;
   docContent = '';
   constructor(private appService: AppService,
-              private router: Router,
               private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
     // this.appService.getDocContent(this.fileName).subscribe(docData => this.docContent = docData);
     this.fileName = this.actRoute.snapshot.paramMap.get('docName');
-    this.docContent = this.appService.getDocContent(this.fileName);
+    this.appService.getDocContent(this.fileName).subscribe(
+			apiData => {
+				console.info("Document Content : ", apiData);
+				this.docContent = apiData.data as any;
+			},
+			docError =>{
+				console.error("Error Occured While Getting Docs Content!");
+				console.error(docError);
+			}
+        );
   }
 
 }

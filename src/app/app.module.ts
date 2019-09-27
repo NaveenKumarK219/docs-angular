@@ -12,12 +12,14 @@ import {MaterialImportModule} from './material-import.module';
 import {MarkdownModule, MarkdownService, MarkedOptions} from 'ngx-markdown';
 import {NotifierModule} from 'angular-notifier';
 import {LMarkdownEditorModule} from 'ngx-markdown-editor';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DocsComponent,
-        LoginComponent
+        LoginComponent,
+        DashboardComponent
     ],
     imports: [
         BrowserModule,

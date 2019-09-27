@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
     if (this.email.invalid && this.password.invalid) {
       return false;
     } else {
-      this.authService.getAccessToken(this.email, this.password);
+		console.log(this.email);
+      this.authService.getAccessToken(this.email.value, this.password.value);
     }
   }
 

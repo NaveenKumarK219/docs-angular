@@ -18,10 +18,18 @@
     <mat-sidenav-container class="nav-sidebar-container">
         <mat-sidenav class="nav-sidebar" mode="side" opened>
             <mat-nav-list >
-                <a mat-list-item *ngFor="let navItem of menuDtls"
-                   [routerLink]="['/docs', navItem.fileName]" routerLinkActive="nav-link-active">
-                    {{navItem.title}}
-                </a>
+				<div *ngIf="!adminView">
+					<a mat-list-item *ngFor="let navItem of menuDtls"
+						[routerLink]="['/docs', navItem.fileName]" routerLinkActive="nav-link-active">
+						{{navItem.title}}
+					</a>
+				</div>
+				<div *ngIf="adminView">
+					<a mat-list-item *ngFor="let adminItem of adminMenu"
+						[routerLink]="['/admin', adminItem.view]" routerLinkActive="router-link-active" >
+						{{adminItem.title}}
+					</a>
+				</div>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content class="mat-card-content">
